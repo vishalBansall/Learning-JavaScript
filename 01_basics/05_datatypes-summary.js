@@ -69,3 +69,17 @@ console.log(typeof heros);
 // typeof array is --> object
 console.log(typeof outsideTemp);
 // typeof null is --> object
+
+//**************Memories**********************
+
+// Two types:- 1. Stack Memory, 2. Heap Memory
+
+//Stack Memory:- [Premitive]
+// Heap Memory - [Reference/ Non-premitive]
+
+//--> Whenever stack memory is used...we get a copy of some value.i.e. if we change the value in new variable...then the original value in old variable remains same.
+
+
+//--> Whenever heap memory is used....original value is used...i.e. if we change the value in even new variable...then the original value in the old variable also gets changed....because it is passed by reference.
+//
+
