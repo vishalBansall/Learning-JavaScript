@@ -23,11 +23,12 @@ const num = new Number(300);
 
 let otherNumber = 443.82423;
 
+//O/p --> 444
 //console.log(otherNumber.toPrecision(3));
 // Note --> Precision will consider the entered value from starting only...and not from decimal points.....so precise calculation should be done before using it.
 
 let num2 = 10000002400;
-// LocalString --> It converts the number to string and shows it with comma for better understanding and counting. For eg:-
+// LocaleString --> It converts the number to string and shows it with comma for better understanding and counting. For eg:-
 
 //console.log(num2.toLocaleString('en-IN'));
 // here 'en-IN' is for to adjust comma to indian number style.
@@ -51,7 +52,9 @@ let num2 = 10000002400;
 // The +ve value will remain +ve.
 
 //console.log(Math.round(483.984));
+// O/P --> 484
 // It will round-off the value to its nearest integer.
+
 
 //--> Math.min --> It will return the lowest value from a given array.
 //console.log(Math.min(4,3,2,5,6,1,5));
