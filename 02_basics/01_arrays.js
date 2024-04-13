@@ -1,7 +1,7 @@
 // Arrays - collection of data
 // Data can be of multiple types.
 
-// array --> object.
+// array --> object [type].
 // JS arrays are resizeable.
 // array always makes shallow copies....(i.e. arrays are pass by reference.)
 
@@ -71,7 +71,6 @@ console.log(myArr.indexOf(10));
 let arr1 = new Array("Vishal", "Bansal" , 22, 8508197000)
 
 console.log(arr1.join("&"));
-// By default the array is , sepearted in string but we can make it seperated by anything we want like " " or & or anything..
+// By default the array is , seperated in string but we can make it seperated by anything we want like " " or & or anything..
 
-//*************Array Part 2 ******************
-
+//********************************************
