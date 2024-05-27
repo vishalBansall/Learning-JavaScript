@@ -1,0 +1,106 @@
+<!-- Edit or Remove Elements from DOM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Basics | Learing JS on YT</title>
+    <style>
+        .mainBody{
+            background-color: #212121;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="mainBody">
+
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+
+</body>
+
+<script>
+
+    function addListItem(langName){
+        let li = document.createElement('li');
+        li.innerHTML = langName;
+
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addListItem("python")
+    addListItem("Java")
+    addListItem("typeScript")
+
+// In this method we are adding the list items as per requirement but in this case whenever we are adding any list item, we are traversing the whole DOM tree again & again....matlab hmm pure elements ko bar bar traverse krke last me add ke rhe hh jo ki optimize way nhi hh kuki agr 1000 ya 100000 values hoti to ye optimize way nhi hota...
+
+// Therefore, trying optimized code-->
+
+function addOptimizedItem(langName){
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode(langName));
+    document.querySelector('.language').appendChild(li)
+}
+addOptimizedItem("goLang")
+
+// this is optimized approach because it does not traverse the tree...it directly injects(appends) the new textNode in current list...
+
+
+// Editing --> Replacing python with TikTok
+// Steps are:-
+
+//1. Select what to edit-->
+let secondLang = document.querySelector("li:nth-child(2)")
+
+//2. Create with whom to edit -->
+let newLi = document.createElement('li');
+newLi.textContent = 'TikTok';
+
+// 3. Make editing-->
+secondLang.replaceWith(newLi)
+
+
+// Editing example 2 --> [Replacing JavaScript with typeScript]
+
+const firstLi = document.querySelector('li:nth-child(1)')
+
+const li = document.createElement('li');
+
+li.textContent = "typeScript";
+
+firstLi.replaceWith(li)
+
+// JavaScript replaced with typeScript -- done
+
+
+// Editing using innerHTML --> [but it will traverse whole tree]
+
+let thirdLi = document.querySelector("li:nth-child(3)")
+
+console.log(thirdLi);
+thirdLi.innerHTML = "WhatsApp";
+
+
+// Editing using outerHTML -->
+
+let fourthLi = document.querySelector('li:nth-child(4)')
+
+fourthLi.outerHTML = '<li>Facebook </li>'
+
+// 3 Ways to edit are done...
+
+
+
+// Remove elements -->
+
+let lastLang = document.querySelector("li:last-child")
+
+// lastLang.remove()
+
+// goLang is removed from the list...
+
+
+//*******************DOM Manipulation Done*********************
+</script>
+</html>
