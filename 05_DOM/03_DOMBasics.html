@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Learning by Youtube</title>
+    <style>
+        .pageBody{
+            background-color: #212121;
+        }
+    </style>
+</head>
+<body class="pageBody" style="color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+</body>
+
+<script>
+
+// Selecting the parent class by JS 
+    let ParentClass = document.querySelector('.parent')
+    //console.log(ParentClass);
+
+// Taking the elements of class as array like format. [HTML Collection]
+    //console.log(ParentClass.children);
+    
+// Printing that child 
+
+    //console.log(ParentClass.children[3].innerHTML);
+
+// Applying loop on this whole array like HTML Collection -> children
+
+    // for(let i = 0 ; i < ParentClass.children.length ; i++)
+    // {
+    //     console.log(ParentClass.children[i].innerHTML);
+    // }
+
+    ParentClass.children[0].style.color = 'orange';
+    ParentClass.children[1].style.color = 'blue';
+    ParentClass.children[2].style.color = 'skyblue';
+    ParentClass.children[3].style.color = 'lightgreen';
+    ParentClass.children[4].style.color = 'brown';
+
+
+// Other properties-->
+// 1. firstElementChild -->
+    
+    //console.log(ParentClass.firstElementChild);
+
+// Prints the first element of child of a selected class
+// O/P --> <div class="day" style="color: orange;">Monday</div>
+
+// 2. lastElementChild -->
+
+    //console.log(ParentClass.lastElementChild);
+
+// Prints the last element of child of a selected class.
+// O/P --> <div class="day" style="color: brown;">Friday</div>
+
+
+// Moving from child to parent -->
+
+    const childClassDay1 = document.querySelector('.day')
+   
+    // console.log(childClassDay1.parentElement);
+
+// parentElement will give the whole parent element of current child class.
+
+// Moving from current child to next element sibling -->
+
+    //  console.log(childClassDay1.nextElementSibling);
+
+// nextElementSibling will give the next sibling child of the same class of current element
+
+//Moving from current child to previous sibling -->
+
+    let childClassDay2 = document.querySelectorAll('.day')
+
+// current element -->
+    console.log(childClassDay2[2].innerHTML);
+// previous element -->
+
+    console.log(childClassDay2[2].previousElementSibling.innerHTML);
+
+
+
+//*** childNodes -->
+
+    //console.log(ParentClass.childNodes);
+        
+// childNodes gives the tree structure of current parent or child class that how many nodes are there for a given parent class.
+// HTML counts the line break as a childNode in JS but if we do continuous line breaks than also only one childNode will be counted.
+
+// ************Further class is in next HTML File**************
+</script>
+</html>
