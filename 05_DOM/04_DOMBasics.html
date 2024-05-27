@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Learning from Youtube</title>
+    <style>
+        *{
+            background-color: #212121;
+        }
+
+    </style>
+</head>
+
+<body style="color: aliceblue;">
+
+</body>
+
+<script>
+     const div = document.createElement('div')
+
+     console.log(div);
+
+    div.className = "mainDivClass";
+    div.id = "mainDivId";
+
+// setAttribute --> used to create attributes of element as required, we just gives the attribute in key & value pairs.
+    div.setAttribute("title" , "divGeneratedUsingJS");
+
+// Adding style to div -->
+
+div.style.backgroundColor = 'green';
+div.style.padding = "10px";
+div.style.color = '#fff'
+
+// Writing something in div -->
+
+// 1st way -->
+
+// div.innerText = "Learning JS with Chai aur Code"
+
+// 2nd Way --> [Optimized way]
+
+let divText = document.createTextNode("Learning JS with Chai aur Code");
+div.appendChild(divText);
+
+
+// Right now we created this div but this does not appear in webpage, because this div is in memory right now.
+// We need to attach it to document to get it appear in the webpage.
+
+// Attaching the div to webpage -->
+
+document.body.appendChild(div)
+
+
+//***************DOM element creation done*******************
+</script>
+</html>
