@@ -1,14 +1,188 @@
+<!-- Main Object --(NodeList & HTMLCollection) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DOM Learning</title>
+    <title>DOM-1 | Learning with YT</title>
 </head>
-<body>
+<body style="background-color: #212121; color: aliceblue;">
     <div class="bg-black">
-        <h1 class="heading">DOM Learing on Youtube</h1>
+        <h1 id="headingId" class="headingClass">DOM Learing on Youtube <span style="display: none;"> Test Text</span></h1>
+
+        <h2 class="classH2">Lorem ipsum dolor sit amet.</h2>
+        <h2 class="classH2">Lorem ipsum dolor sit</h2>
+        <h2 class="classH2">Lorem, ipsum dolor.</h2>
+        <h2 class="classH2">Lorem, ipsum.</h2>        
+
         <p>Lorem ipsum dolor sit amet.</p>
 
+        <input type="password">
+
+        <ul>
+            <li class = "listItem">one</li>
+            <li class = "listItem">two</li>
+            <li class = "listItem">three</li>
+            <li class = "listItem">four</li>
+        </ul>
+    
     </div>
 </body>
+<script>
+
+    // 'Trying to select h1 tag with id = headingId'
+
+    let element = document.getElementById('headingId')
+
+    //console.log(element);
+
+// --> getting the required attributes from elements -->
+
+    // console.log(element.getAttribute('id'))
+
+    // console.log(element.getAttribute('class'))
+
+//--> setAttribute --> Used to set the required element to element
+
+    element.setAttribute('id', 'headID headingId')
+
+    // console.log(element.getAttribute('id'));
+//O/P --> headID headingId ...i.e. if we will pass only single value in setAttribute then it will over write the current value 
+
+// Adding style to selected content-->
+
+element.style.color = "grey"
+element.style.backgroundColor = "darkblue"
+
+element.style.padding = "4px"
+element.style.borderRadius = "10px"
+
+
+// --> Extracting content to selected elements of webpage -->
+
+// 1. innerHTML
+// 2. textContent
+// 3. innerText
+
+
+// 1. innerText --> We have the test content in h1, will try to print the h1 -->
+
+// console.log(element.innerText);
+
+//O/P --> DOM Learing on Youtube, ...i.e. it only prints the visible content of selected element..
+
+// 2. textContent --> trying same on h1.-->
+
+// console.log(element.textContent);
+
+//O/P --> DOM Learing on Youtube  Test Text ...i.e. In textContent we get the content which is hidden in the selected element...
+
+
+// 3. innerHTML --> trying same on h1. -->
+
+// console.log(element.innerHTML);
+
+//O/P --> DOM Learing on Youtube <span style="display: none;"> Test Text</span> 
+// i.e. innerHTML provide the whole selected content with <tags> as well...
+
+
+
+//*** querrySelector-->
+
+let qElement = document.querySelector(".classH2")
+
+// console.log(qElement);
+
+let input = document.querySelector('input[type ="password"]')
+
+// console.log(input);
+
+
+let myUl = document.querySelector('ul')
+
+// console.log(myUl);
+
+//O/P --> <ul>
+//             <li>one</li>
+//             <li>two</li>
+//             <li>three</li>
+//        </ul>
+
+// Now we can run querySelector again on this myUl-->
+
+const myLi = myUl.querySelector('li')
+
+myLi.style.color = "green";
+myLi.style.padding = "5px"
+
+
+//*** Selecting multiple elements with 'querySelectorAll' -->
+
+// console.log(myUl.querySelectorAll('li'));
+
+// O/P --> We got the nodeList of all li available in the ul...
+// And we can use forEach loop in nodeList because it is given in its prototype...
+// nodeList are not pure array that's why we can use forEach loops onlyy....
+
+
+let tempLiList = document.querySelectorAll('li')
+
+
+tempLiList[1].style.color = "yellow"
+
+tempLiList[2].style.color = "orange"
+
+
+// Note --> when we use querySelectorAll, we always gets a nodeList in return...even if there is only one element present to be selected, it will return that element as nodeList and we will have to access that one element as x[0] only...
+
+// for eg. --> only 1 h1 is available on webpage right now-->
+
+const myH1 = document.querySelectorAll('h1')
+
+// console.log(myH1);
+
+// O/P ==> NodeList [h1#headID headingId.headingClass]
+// Styling this -->
+
+// myH1[0].style.color = "orange"
+
+
+// using forEach on nodeList -->
+
+tempLiList.forEach( (item) => {
+    return item.style.backgroundColor = "red"
+})
+
+
+
+// --> getElementByClassName --> [It always return the element in HTMLCollection format]
+
+// console.log(document.getElementsByClassName('listItem'));
+
+//O/P --> HTMLCollection(4) [li.listItem, li.listItem, li.listItem, li.listItem]
+
+// In HTMLCollection -> no loop is given in its prototype...then which loop we can use??
+
+// We will have to convert HTMLCollection to array first...
+
+let tempClassList = document.getElementsByClassName('listItem')
+
+// Converting htmlCollection to array-->
+
+let tempClassListArray = Array.from(tempClassList);
+
+// console.log(tempClassListArray);
+
+// Now it has become array and loops can be used on it.
+
+
+tempClassListArray.forEach( (li) => {
+    // li.style.color = "black"
+})
+
+tempClassListArray.map( (l) => {
+    // l.style.backgroundColor = "purple";
+})
+
+</script>
 </html>
+<!-- ****************************************************** -->
