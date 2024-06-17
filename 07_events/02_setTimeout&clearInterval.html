@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:dimgray; color: #fff;">
+    <h1>Learning JS with YT</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    //A setTimeout is a browser function which executes the required code after set time.
+    // setTimeout(function(){
+    //     console.log("Vishal")
+    // },2000)
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Learning from Chai Aur Code"
+    }
+
+    let changeMe = setTimeout(changeText, 2000)
+
+    // clearTimeout() --> it stops the setTimeout exeuction if it is executed before setTimeout...
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("stopped")
+    })
+    
+</script>
+</html>
