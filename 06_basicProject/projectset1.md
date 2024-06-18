@@ -194,3 +194,71 @@ function newGame()
 }
 
 ```
+
+## Project - 5 [Check which Keyboard Key is pressed]
+
+```Javascript
+const insert = document.getElementById('insert');
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+    <div class = "key"> 
+    <table>
+    <tr>
+      <th>key</th>
+      <th>keyCode</th>
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.keyCode}</td>
+      <td>${e.code}</td>
+    </tr>
+  </table>
+    </div>
+  
+  `;
+
+  let background = document.querySelector('.key');
+  background.style.backgroundColor = 'green';
+});
+
+```
+
+## Project 6 [Change background color after every 1 second]
+
+```Javascript
+// generate random value for color...
+
+// Hex value for color ranges between 0123456789ABCDEF
+
+let randomColor = function () {
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+let startInterval;
+
+let startChangingColor = function () {
+  let changeBGColor = function () {
+    document.body.style.backgroundColor = randomColor();
+  };
+  if (startInterval == null) {
+    startInterval = setInterval(changeBGColor, 1000);
+  }
+};
+let stopChangingColor = function () {
+  clearInterval(startInterval);
+  startInterval = null;
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
+
+```
