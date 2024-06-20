@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <!--  Value	State	Description -->
+    <!-- 0	UNSENT	Client has been created. open() not called yet. -->
+    <!-- 1	OPENED	open() has been called. -->
+    <!-- 2	HEADERS_RECEIVED	send() has been called, and headers and status are available. -->
+    <!-- 3	LOADING	Downloading; responseText holds partial data. -->
+    <!-- 4	DONE	The operation is complete. -->
+
+</body>
+<script>
+
+// let requestURL = 'https://api.github.com/users/vishalbansall'
+// let xhr = new XMLHttpRequest();
+// xhr.open('GET', requestURL)
+// xhr.send()
+
+// This API request has been sent now after xhr.send
+// Now to continuosly track the api request we have a method...'onreadystatechange' -->
+// console.log('Hello');
+// xhr.onreadystatechange = function(){
+//     console.log(xhr.readyState);
+// }
+
+// It will give o/p in 1 2 3 4...then we can compare those with the above mentioned value state discription..
+
+//Now taking useful data out of the data received...
+
+// Taking Hitesh sir's data from github and putting his image and followers on DOM...
+
+let newRequestUrl = 'https://api.github.com/users/hiteshchoudhary'
+const newXhr = new XMLHttpRequest();
+newXhr.open('GET', newRequestUrl)
+
+newXhr.send()
+
+newXhr.onreadystatechange = function(){
+    // console.log(newXhr.readyState);
+    if(newXhr.readyState === 4)
+    {
+        const data = JSON.parse(this.responseText)
+
+        // Creating button on which we will click to get useful data...
+        let btn = document.createElement('button');
+        btn.innerText = "Get Details";
+        btn.style.backgroundColor = 'blue';
+        btn.style.color = 'white';
+        document.body.appendChild(btn)
+
+        btn.addEventListener('click', function(){
+            btn.style.display = "none";
+            // Adding a div on DOM
+            const card = document.createElement('div')
+            // card.innerHTML = "Hello"
+            card.id = 'parentDiv'
+            card.style.color = 'white'
+            card.style.border = "1px solid red"
+            card.style.padding = "4px"
+            card.style.margin = '20px';
+
+             //Taking the followers inside div made.
+             const userFollowers = Number(data.followers);
+             card.append(userFollowers)
+            // Taking the picture inside div made-->
+            let avatarPic = document.createElement('a')
+            avatarPic.href = (data.avatar_url);
+            let frame = document.createElement('iframe')
+            frame.src=avatarPic
+            frame.style.display = 'block';
+            card.append(frame)
+            document.body.appendChild(card)
+
+            //Done - The followers and images are taken on DOM
+        })
+    }
+}
+
+</script>
+</html>
